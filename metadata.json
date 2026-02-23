@@ -1,0 +1,10 @@
+{
+    "id": "backlight",
+    "title": "Backlight",
+    "description": "A fork theme for Better Lyrics, combination of reCover and Spotilife.",
+    "creators": ["Friczh"],
+    "minVersion": "2.2.0",
+    "hasShaders": false,
+    "version": "1.0.0",
+    "tags": ["spotify", "font", "lyrics", "visual", "minimal", "fullscreen", "cover"]
+}
