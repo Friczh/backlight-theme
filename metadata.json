@@ -6,5 +6,6 @@
     "minVersion": "2.2.0",
     "hasShaders": false,
     "version": "1.0.0",
-    "tags": ["spotify", "font", "lyrics", "visual", "minimal", "fullscreen", "cover"]
+    "tags": ["spotify", "font", "lyrics", "visual", "minimal", "fullscreen", "cover"],
+    "images": ["1.png", "2.png"]
 }
