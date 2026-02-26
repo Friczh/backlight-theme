@@ -12,14 +12,12 @@
     --blyrics-padding: 1.5rem;
     --blyrics-font-size: 3.25rem;
     --blyrics-wobble-duration: 2s;
-    --blyrics-fullscreen-panel-size: 55%; 
+    --blyrics-fullscreen-panel-size: 48%; 
     --blyrics-hover-scale: 1;
-
     --yt-album-fullscreen-size: 100vh;
-    --yt-album-size: 80%;
+    --yt-album-size: 100%;
     --yt-album-border-radius: .9rem;
 }
-
 ytmusic-player-page:not([is-mweb-modernization-enabled]) {
     &:not([video-mode]) {
         #player.ytmusic-player-page {
@@ -53,8 +51,8 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
 
             &:not([blyrics-dfs]):has(.blyrics-container[data-no-lyrics="true"]) {
                 #main-panel {
-                    transform: none;
-                    transition: none;
+                    transform: fade-in;
+                    transition: fade-in;
                 }
 
                 #player {
@@ -76,7 +74,7 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
         display: none;
         flex-direction: column;
         position: fixed;
-        background-color: rgba(0, 0, 0, .45);
+        background-color: rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(1rem);
         left: 2rem;
         top: 2rem;
@@ -90,7 +88,7 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
         font-family: var(--blyrics-translated-font-family);
         font-weight: 500;
         line-height: 1.2;
-        text-shadow: 0 0 1rem hsl(0, 0%, 0%, .5);
+        text-shadow: 0 0 1rem hsl(0, 0%, 0%,);
     }
 }
 
@@ -105,13 +103,14 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
 .blyrics-container:has(.blyrics--active) {
     &:not(.blyrics-user-scrolling) > .blyrics--line:not(.blyrics--active) {
         &:not(.blyrics--active ~ .blyrics--line) {
-            opacity: 0.6;
-            filter: blur(.3rem);
-            transition: 0.5s 0.3s, transform 0.15s var(--blyrics-anim-delay, 0s) !important;
+            opacity: 0.7;
+            filter: blur(.1rem);
+            transition: 0.5s 0.3s, transform 0.3s var(--blyrics-anim-delay, 0s) !important;
         }
 
         :not(.blyrics--active ~ .blyrics--line) {
-            filter: blur(.05rem);
+            filter: blur(0.1rem);
+            transition: 0.1s 0.3s, transform 1s var(--blyrics-anim-delay)
         }
     }
     
@@ -125,3 +124,4 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
     filter: blur(.5rem);
     transition: 0.5s 0.3s, transform 0.15s var(--blyrics-anim-delay, 0s) !important;
 }
+
