@@ -16,7 +16,7 @@
     --blyrics-hover-scale: 1.05;
 
     --yt-album-fullscreen-size: 100vh;
-    --yt-album-size: 80%;
+    --yt-album-size: 100%;
     --yt-album-border-radius: .9rem;
 }
 
