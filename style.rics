@@ -94,7 +94,7 @@
             
         }
         .middle-controls {
-            grid-area: start;
+            display: none;
             justify-content: left;
             margin-top: 8px;
 
@@ -107,26 +107,30 @@
                     display: none;
                 }
             }
-
             .thumbnail-image-wrapper {
                visibility: hidden !important;
                 display: none !important;
                 }
             }
+        .toggle-player-page-button {
+                display: none;
+            } 
+            .time-info {
+                position: absolute;
+                display: none;
+            }       
         }
-
         #left-controls {
-            grid-area: middle;
+            grid-area: start;
             justify-content: center;
             .rewind-button,
             yt-icon-button:nth-last-of-type(2) {
                 display: block !important;
       }
     }
-
         #right-controls {
             grid-area: end;
-            justify-content: center;
+            justify-content: flex;
             #sliderKnob {
                 display: inline;
        }
@@ -136,8 +140,18 @@
        }
     }
  }
- 
-
+ ytmusic-player-bar {
+  .title,
+  .subtitle,
+  .byline,
+  .content-info-wrapper,
+  .secondary-info,
+  .song-info,
+  #player-bar-secondary-info,
+  .metadata {
+    display: none !important;
+  }
+}
 ytmusic-player-page:not([is-mweb-modernization-enabled]) {
     &[player-fullscreened]:not([blyrics-dfs]):has(.blyrics-container[data-no-lyrics="true"]) {
   #main-panel {
