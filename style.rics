@@ -21,13 +21,23 @@
 }
 
 ytmusic-player-page:not([is-mweb-modernization-enabled]) {
+    &[player-fullscreened]:not([blyrics-dfs]):has(.blyrics-container[data-no-lyrics="true"]) {
+  #main-panel {
+    transform: none;
+    transition: none;
+  }
+
+  #player {
+    transition: none;
+  }
+}
     &:not([video-mode]) {
         #player.ytmusic-player-page {
             max-width: var(--yt-album-size) !important;
             border-radius: var(--yt-album-border-radius);
             overflow: hidden;
         }
-
+    
         &[player-fullscreened] {
             #player.ytmusic-player-page {
                 position: fixed;
