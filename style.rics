@@ -1,3 +1,4 @@
+/* Backlight, a marketplace theme by Friczh */
 @font-face {
     font-family: "SpotifyMixUITitle";
     src: url("https://encore.scdn.co/fonts/SpotifyMixUITitleVariable-8769ccfde3379b7ebcadd9529b49d0cc.woff2");
@@ -13,11 +14,11 @@
     --blyrics-padding: 1.5rem;
     --blyrics-font-size: 3.25rem;
     --blyrics-wobble-duration: 2s;
-    --blyrics-fullscreen-panel-size: 55%; 
+    --blyrics-fullscreen-panel-size: 52%; 
     --blyrics-hover-scale: 1.05;
 
     --yt-album-fullscreen-size: 100vh;
-    --yt-album-size: 100%;
+    --yt-album-size: 150%;
     --yt-album-border-radius: .9rem;
 }
 
@@ -27,25 +28,25 @@
     #player-bar-background {
         background: rgba(0, 0, 0, .45);
         backdrop-filter: blur(32px);
-        height: 70px;
+        height: 75px;
         border-radius: 10px;
         right: 12px;
         left: 12px;
         bottom: 12px;
         box-shadow: none !important;
     }
-
-
     ytmusic-player-bar {
+    //The whole player bar :D
+        border-radius: 10px;
         background: transparent !important;
         background-image: none !important;
         grid-template-columns: 1fr 0.5fr 1fr;
         grid-template-areas: "start middle end";
         align-items: center; 
-        margin: 0 0 10px 23px;
+        margin: 10px 0 10px 19px;
         width: calc(100vw - 46px);
         box-shadow: none !important;
-        
+    //The progress bar looks smooth   
         #progress-bar {
             position: absolute !important;
             top: -8px !important; 
@@ -56,13 +57,11 @@
             padding: 0 !important;
             --paper-slider-height: 8px !important;
             z-index: 10;
-
             #sliderContainer {
                 height: 8px !important;
                 margin: 0 !important;
                 padding: 0 !important;
             }
-            
             #sliderBar {
                 padding: 0 !important;
                 height: 8px !important;
@@ -74,7 +73,6 @@
                     border-radius: 60px !important; 
                     height: 8px !important; 
                 }
-                
                 #progressContainer {
                     overflow: hidden; 
                     background-color: rgba(255, 255, 255, 0.1) !important;
@@ -91,17 +89,14 @@
                 right: 0 !important;
                 margin: 0 !important;
             }
-            
         }
         .middle-controls {
-            display: none;
-            justify-content: left;
+            justify-content: auto;
             margin-top: 8px;
-
+            width: 500px;
             .middle-controls-buttons {
                 #like-button-renderer {
-                    order: 1;
-                    margin: 0px 20px 0px -8px;
+                    display: none;
                 }
                 #button-shape-dislike {
                     display: none;
@@ -117,12 +112,30 @@
             } 
             .time-info {
                 position: absolute;
-                display: none;
-            }       
+                transform: translateX(300%);
+                background: rgba(0, 0, 0, .25);
+                border-radius: 50px;
+                color: white;
+                padding: 3px 8px 2px 8px;
+            }
+            .ytIconWrapperHost {
+            flex: 0 0 auto !important;  
+            margin-left: auto !important;  
+            background: transparent !important; 
+            }   
+            .content-info-wrapper {
+            flex: 1 !important;
+            min-width: 0 !important;
+            white-space: normal !important;
+            overflow: visible !important;
+            text-overflow:  !important;
+            margin: 0 !important;
+            }
         }
         #left-controls {
             grid-area: start;
             justify-content: center;
+            width: 400px;
             .rewind-button,
             yt-icon-button:nth-last-of-type(2) {
                 display: block !important;
@@ -130,7 +143,7 @@
     }
         #right-controls {
             grid-area: end;
-            justify-content: flex;
+            justify-content: center;
             #sliderKnob {
                 display: inline;
        }
@@ -140,25 +153,12 @@
        }
     }
  }
- ytmusic-player-bar {
-  .title,
-  .subtitle,
-  .byline,
-  .content-info-wrapper,
-  .secondary-info,
-  .song-info,
-  #player-bar-secondary-info,
-  .metadata {
-    display: none !important;
-  }
-}
 ytmusic-player-page:not([is-mweb-modernization-enabled]) {
     &[player-fullscreened]:not([blyrics-dfs]):has(.blyrics-container[data-no-lyrics="true"]) {
   #main-panel {
     transform: none;
     transition: none;
   }
-
   #player {
     transition: none;
   }
@@ -169,7 +169,6 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
             border-radius: var(--yt-album-border-radius);
             overflow: hidden;
         }
-    
         &[player-fullscreened] {
             #player.ytmusic-player-page {
                 position: fixed;
@@ -180,19 +179,16 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
                 box-shadow: none;
                 z-index: 0;
             }
-            
             #thumbnail {
                 mask-image: linear-gradient(
                     to right, 
                     rgba(0, 0, 0, 1),
                     rgba(0, 0, 0, 0)
-                );
+                )
             }
-
             .song-media-controls.ytmusic-player {
                 background: transparent;
             }
-
             &:not([blyrics-dfs]):has(.blyrics-container[data-no-lyrics="true"]) {
                 #main-panel {
                 transform: none;
@@ -210,14 +206,12 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
             }
         }
     }
-    
     &[player-fullscreened] {
         &:not([blyrics-dfs]) #blyrics-song-info {
             display: flex;
             padding: 1rem 1.25rem;
         }
     }
-
     &:not([blyrics-dfs]) #blyrics-song-info {
         display: none;
         flex-direction: column;
@@ -231,7 +225,6 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
         justify-content: flex-end;
         align-items: flex-start;
     }
-
     #blyrics-song-info > p {
         text-align: left;
         font-family: var(--blyrics-translated-font-family);
@@ -240,11 +233,19 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
         text-shadow: 0 0 1rem hsl(0, 0%, 0%, .5);
     }
 }
-
+.time-info.ytmusic-player-bar, 
+#time-indicator,
+.duration.ytmusic-player-bar,
+.time-info.ytmusic-player-page,
+#hover-time-info.ytmusic-player-bar,
+.index-column.ytmusic-responsive-list-item-renderer {
+  font-family: "Ubuntu", monospace !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
 .blyrics--line {
     text-shadow: 0 .3rem .5rem rgba(0, 0, 0, .1);
 }
-
 #blyrics-song-info > p {
     font-family: var(--blyrics-font-family);
 }
@@ -255,12 +256,10 @@ ytmusic-player-page:not([is-mweb-modernization-enabled]) {
             filter: blur(.25rem);
             transition: 0.5s 0.9s, transform 0.15s var(--blyrics-anim-delay, 0s) !important;
         }
-
         :not(.blyrics--active ~ .blyrics--line) {
             filter: blur(.05rem);
         }
     }
-    
     & > .blyrics--line:hover {
         transform: scale(var(--blyrics-hover-scale));
         transition: all 0.35s ease;
